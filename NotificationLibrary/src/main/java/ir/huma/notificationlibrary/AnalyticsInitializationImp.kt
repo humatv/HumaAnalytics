@@ -2,10 +2,11 @@ package ir.huma.notificationlibrary
 
 import android.app.Application
 import android.content.Context
+import com.webengage.sdk.android.UserProfile
 import com.webengage.sdk.android.WebEngage
 import com.webengage.sdk.android.WebEngageActivityLifeCycleCallbacks
-
 import com.webengage.sdk.android.WebEngageConfig
+import com.webengage.sdk.android.utils.Gender
 import ir.huma.notificationlibrary.common.Constants
 import ir.huma.notificationlibrary.utils.Utils
 
