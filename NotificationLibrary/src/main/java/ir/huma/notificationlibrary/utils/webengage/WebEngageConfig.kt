@@ -1,18 +1,15 @@
-package ir.huma.notificationlibrary
+package ir.huma.notificationlibrary.utils.webengage
 
 import android.app.Application
-import android.content.Context
-import com.webengage.sdk.android.UserProfile
-import com.webengage.sdk.android.WebEngage
 import com.webengage.sdk.android.WebEngageActivityLifeCycleCallbacks
 import com.webengage.sdk.android.WebEngageConfig
-import com.webengage.sdk.android.utils.Gender
 import ir.huma.notificationlibrary.common.Constants
-import ir.huma.notificationlibrary.utils.Utils
+import ir.huma.notificationlibrary.utils.AnalyticsConfig
 
 
-class AnalyticsInitializationImp:AnalyticsInitialization {
+class WebEngageConfig: AnalyticsConfig {
     override fun initializeWebEngage(application: Application, webEngageLicenseKey: String?,isDebugMode:Boolean) {
+
        val webEngageLicenseKeyForConfig = webEngageLicenseKey
            ?: if (isDebugMode){
                Constants.WEB_ENGAGE_TEST_LICENSE_CODE
@@ -27,9 +24,5 @@ class AnalyticsInitializationImp:AnalyticsInitialization {
             webEngageConfig))
     }
 
-    override fun setLoginUniqueIdForWebEngage(context: Context) {
-        Utils.getMacAddress(context)?.let {
-            WebEngage.get().user().login(it)
-        }
-    }
+
 }

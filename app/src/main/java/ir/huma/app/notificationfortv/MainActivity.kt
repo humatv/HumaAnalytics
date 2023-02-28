@@ -2,7 +2,6 @@ package ir.huma.app.notificationfortv
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import ir.huma.notificationlibrary.AnalyticsUtil
 
 class MainActivity : AppCompatActivity() {
     // Get an instance of ‘Analytics’ object
@@ -20,6 +19,6 @@ class MainActivity : AppCompatActivity() {
         addedToCartAttributes["Currency"] = "USD"
         addedToCartAttributes["Discounted"] = true
 
-        AnalyticsUtil.sendEvent("test_event_name",addedToCartAttributes)
+//        AnalyticsUtil.sendEvent("test_event_name",addedToCartAttributes)
     }
 }

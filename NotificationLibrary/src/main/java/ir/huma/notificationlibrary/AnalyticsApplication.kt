@@ -1,22 +1,25 @@
 package ir.huma.notificationlibrary
 
 import android.app.Application
+import ir.huma.notificationlibrary.utils.AnalyticsConfig
+import ir.huma.notificationlibrary.utils.webengage.WebEngageConfig
 
 
 abstract class AnalyticsApplication(
-    private val webEngageLicensesKey:String?=null,
-    private val analyticsInitialization: AnalyticsInitialization = AnalyticsInitializationImp(),
     private val isBuildConfigDebug: Boolean,
-    private val buildConfigFlavor: String
-):Application() {
+    private val buildConfigFlavor: String,
+    private val analyticsConfig: AnalyticsConfig = WebEngageConfig(),
+    private val webEngageLicensesKey: String? = null,
+) : Application() {
     override fun onCreate() {
         super.onCreate()
-        analyticsInitialization.apply {
-            val isDebugMode =if(isBuildConfigDebug) true else {
+        analyticsConfig.apply {
+            val isDebugMode = if (isBuildConfigDebug) true
+            else {
                 buildConfigFlavor != "prod"
             }
-            initializeWebEngage(this@AnalyticsApplication,webEngageLicensesKey,isDebugMode)
-            setLoginUniqueIdForWebEngage(this@AnalyticsApplication.baseContext)
+
+            initializeWebEngage(this@AnalyticsApplication, webEngageLicensesKey, isDebugMode)
         }
 
     }
