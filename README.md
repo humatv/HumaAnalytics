@@ -1,14 +1,14 @@
 
 <div align="center">
 
-  <img src="app_icon_company.png" alt="logo" width="200" height="auto" />
-  <h1>Aparat TV sample</h1>
+
+  <h1>HumaAnalytics</h1>
   
   <p>
     A Library For Sending Event And User Attribute For All Huma Apps
   </p>
   
-
+</div>
 
 <!-- About the Library -->
 ## :star2: About the Project
