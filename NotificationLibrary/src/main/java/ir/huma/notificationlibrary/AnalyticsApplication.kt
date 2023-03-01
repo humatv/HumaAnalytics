@@ -1,8 +1,8 @@
 package ir.huma.notificationlibrary
 
 import android.app.Application
-import ir.huma.notificationlibrary.utils.AnalyticsConfig
-import ir.huma.notificationlibrary.utils.webengage.WebEngageConfig
+import ir.huma.notificationlibrary.utils.analytics.AnalyticsConfig
+import ir.huma.notificationlibrary.utils.analytics.webengage.WebEngageConfig
 
 
 abstract class AnalyticsApplication(

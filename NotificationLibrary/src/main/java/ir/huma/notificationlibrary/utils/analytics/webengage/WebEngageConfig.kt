@@ -1,10 +1,10 @@
-package ir.huma.notificationlibrary.utils.webengage
+package ir.huma.notificationlibrary.utils.analytics.webengage
 
 import android.app.Application
 import com.webengage.sdk.android.WebEngageActivityLifeCycleCallbacks
 import com.webengage.sdk.android.WebEngageConfig
 import ir.huma.notificationlibrary.common.Constants
-import ir.huma.notificationlibrary.utils.AnalyticsConfig
+import ir.huma.notificationlibrary.utils.analytics.AnalyticsConfig
 
 
 class WebEngageConfig: AnalyticsConfig {

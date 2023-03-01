@@ -1,4 +1,4 @@
-package ir.huma.notificationlibrary.utils
+package ir.huma.notificationlibrary.utils.analytics
 
 import android.app.Application
 
