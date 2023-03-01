@@ -42,6 +42,7 @@ sync and build your project then follow below steps:
 
 
 1. step 1:
+
 extentend your application class from AnalyticsApplication and pass your BuildConfig.DEBUG, and BuildConfig.FLAVOR
 ```
 class MyExampleApplication : AnalyticsApplication(
@@ -56,7 +57,8 @@ If you can not use inheritance for your Application class so you can add this li
 WebEngageConfig().initializeWebEngage(this, webEngageLicensesKey, isDebugMode)
 ```
 
-2. Step 2 : 
+2. Step 2 :
+
 Disable automatic backup inside the application tag in your AndroidManifest.xml file.
 ```
 <application
@@ -68,6 +70,7 @@ Disable automatic backup inside the application tag in your AndroidManifest.xml 
 If your application needs allowBackup to be set as true, then call me :)
 
 3. Step 3 :
+
 call AnalyticsUtil.loginUser() in first level of entrance to your application (for Exampel in Application Class)
 you can pass 3 argument for login user :
 ```
@@ -98,7 +101,7 @@ you can pass 3 argument for login user :
 Usage
 -----
 
-*Send Events:
+* Send Events:
 example of events without prameters:
 ```
         AnalyticsUtil.sendEvent("test_event_name")
@@ -118,7 +121,7 @@ example of events with prameters:
         AnalyticsUtil.sendEvent("test_event_name",addedToCartAttributes)
 ```
 
-*SetUser Attributes:
+* SetUser Attributes:
 
 ```
  AnalyticsUtil.setUserAttribute(
@@ -131,10 +134,10 @@ example of events with prameters:
             ))
 ```
 
-*Login User:
+* Login User:
 be careful to login user when user log in 
 
-*Logout User: 
+* Logout User: 
 
 ```
 AnalyticsUtil.logoutUser()
