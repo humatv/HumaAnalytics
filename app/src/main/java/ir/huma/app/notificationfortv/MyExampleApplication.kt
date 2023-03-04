@@ -7,7 +7,7 @@ import ir.huma.notificationlibrary.utils.analytics.AnalyticsUtil
 
 class MyExampleApplication : AnalyticsApplication(
     isBuildConfigDebug = BuildConfig.DEBUG,
-    buildConfigFlavor = BuildConfig.FLAVOR) {
+    buildConfigFlavor =  BuildConfig.FLAVOR) {
     override fun onCreate() {
         super.onCreate()
         val isDevFlavor = BuildConfig.FLAVOR=="dev"
@@ -16,7 +16,7 @@ class MyExampleApplication : AnalyticsApplication(
          * You acn login with "user_unique_Id_from_user_manager" which you got from
          * UserManager Server
          * it's recommend to pass userManagerUserId */
-//        AnalyticsUtil.loginUser(userManagerUserId = "user_unique_Id_from_user_manager",isDevFlavor)
+        AnalyticsUtil.loginUser(userManagerUserId = "user_unique_Id_from_user_manager",isDevFlavor)
 
 
         /**
@@ -30,7 +30,7 @@ class MyExampleApplication : AnalyticsApplication(
          * Or You acn login with "device mac Address" which you got from
          * UserManager Server
          * it's not Recommended*/
-//        AnalyticsUtil.loginUser(userManagerUserId = null, macAddress = "4f:54:23:fs:50", isDevFlavor = isDevFlavor, )
+        AnalyticsUtil.loginUser(userManagerUserId = null, macAddress = "4f:54:23:fs:50", isDevFlavor = isDevFlavor, )
 
     }
 }

@@ -2,6 +2,7 @@ package ir.huma.app.notificationfortv
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import ir.huma.notificationlibrary.data.model.UserAttributes
 import ir.huma.notificationlibrary.utils.analytics.AnalyticsUtil
 
 class MainActivity : AppCompatActivity() {
@@ -21,7 +22,18 @@ class MainActivity : AppCompatActivity() {
         addedToCartAttributes["Currency"] = "USD"
         addedToCartAttributes["Discounted"] = true
 
-        AnalyticsUtil.sendEvent("test_event_name",addedToCartAttributes)
+        AnalyticsUtil.sendEvent("test_event_name", addedToCartAttributes)
+
+        AnalyticsUtil.setUserAttribute(
+            UserAttributes(firstName = "first_name",
+                lastName = "last_name",
+                phoneNumber = "phoneNumber",
+                city = "city",
+                email = "email",
+                avatarUrl = "avatarUrl"
+            ))
+
+        AnalyticsUtil.logoutUser()
 
 
     }
