@@ -23,7 +23,7 @@ Installation
 -----------
 add this dependency in your build.gradle(app level)
 ```
-implementation 'com.github.MOSTAFA-IMANI:HumaAnalytics:1.0.0'
+implementation 'com.github.humatv:HumaAnalytics:1.0.0'
 implementation 'com.google.android.gms:play-services-auth:20.4.1'
 ```
 
@@ -50,7 +50,7 @@ class MyExampleApplication : AnalyticsApplication(
     buildConfigFlavor =  BuildConfig.FLAVOR) {
 }
 ```
-
+* FLAVOR must be "prod" and "dev"
 If you can not use inheritance for your Application class so you can add this line at the end of onCreat in your Application class instead
 
 ```
@@ -121,7 +121,7 @@ example of events with prameters:
         AnalyticsUtil.sendEvent("test_event_name",addedToCartAttributes)
 ```
 
-* SetUser Attributes:
+* SetUser Attributes: (just for HumaStore Project when user update profile)
 
 ```
  AnalyticsUtil.setUserAttribute(
@@ -134,7 +134,7 @@ example of events with prameters:
             ))
 ```
 
-* Login User:
+* Login User: 
 be careful to login user when user log in 
 
 * Logout User: 
