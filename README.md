@@ -50,7 +50,8 @@ class MyExampleApplication : AnalyticsApplication(
     buildConfigFlavor =  BuildConfig.FLAVOR) {
 }
 ```
-* FLAVOR must be "prod" and "dev"
+- FLAVOR must be "prod" and "dev"
+
 If you can not use inheritance for your Application class so you can add this line at the end of onCreat in your Application class instead
 
 ```
