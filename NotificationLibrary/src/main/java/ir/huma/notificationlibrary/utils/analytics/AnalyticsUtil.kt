@@ -1,5 +1,6 @@
 package ir.huma.notificationlibrary.utils.analytics
 
+import android.os.Bundle
 import com.webengage.sdk.android.Analytics
 import ir.huma.notificationlibrary.data.model.UserAttributes
 import ir.huma.notificationlibrary.utils.analytics.webengage.WebEngageAnalyticsUtil
@@ -30,6 +31,12 @@ object AnalyticsUtil:AnalyticsUtilInterface {
             inputEventParameters = inputEventParameters,
 
         )
+    }
+
+    override fun sendEvent(eventName: String, inputEventParameters: Bundle?) {
+        webEngageAnalyticsUtil.sendEvent(
+            eventName =eventName ,
+            inputEventParameters = inputEventParameters)
     }
 
     override fun setUserAttribute(userAttributes: UserAttributes) {

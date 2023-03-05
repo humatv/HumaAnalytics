@@ -59,11 +59,10 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
-//    implementation 'com.github.MOSTAFA-IMANI:HumaAnalytics:1.0.0'
-
+//    implementation 'com.github.humatv:HumaAnalytics:1.0.0'
+//    implementation 'com.github.MOSTAFA-IMANI:HumaAnalytics:1.2.0'
 
     //Firebase
     implementation 'com.google.android.gms:play-services-auth:20.4.1'
-
 
 }

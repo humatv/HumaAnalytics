@@ -1,7 +1,7 @@
 package ir.huma.notificationlibrary.utils.analytics.webengage
 
+import android.os.Bundle
 import android.util.Log
-import com.webengage.sdk.android.Analytics
 import com.webengage.sdk.android.WebEngage
 import ir.huma.notificationlibrary.data.AuthenticationApi
 import ir.huma.notificationlibrary.data.model.AuthenticationRequestParameter
@@ -64,6 +64,28 @@ class WebEngageAnalyticsUtil : AnalyticsUtilInterface {
         }
         else{
             weAnalytics.track(eventName,inputEventParameters)
+        }
+    }
+
+    override fun sendEvent(eventName: String, inputEventParameters: Bundle?) {
+        if (eventName.startsWith("we_"))
+            throw InputMismatchException("Event name must not start with we_")
+
+
+
+        val weAnalytics = WebEngage.get().analytics()
+        if (inputEventParameters==null){
+            weAnalytics.track(eventName)
+        }
+        else{
+            val mapAttributes: MutableMap<String, Any> = HashMap()
+            val iterator = inputEventParameters.keySet().iterator()
+            while (iterator.hasNext()) {
+                val key = iterator.next()
+               val obj =  inputEventParameters.get(key)
+                mapAttributes[key] = obj as Any
+            }
+            weAnalytics.track(eventName,mapAttributes)
         }
     }
 

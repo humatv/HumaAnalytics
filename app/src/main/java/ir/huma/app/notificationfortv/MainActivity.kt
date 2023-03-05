@@ -22,7 +22,15 @@ class MainActivity : AppCompatActivity() {
         addedToCartAttributes["Currency"] = "USD"
         addedToCartAttributes["Discounted"] = true
 
-        AnalyticsUtil.sendEvent("test_event_name", addedToCartAttributes)
+        val bundle = Bundle()
+        bundle.putString("testKey1","testVal1")
+        bundle.putString("testKey2","testVal2")
+        bundle.putInt("testKey3",125)
+        bundle.putBoolean("testKey4",true)
+        bundle.putDouble("testKey5",212.2)
+
+//        AnalyticsUtil.sendEvent("test_event_name", addedToCartAttributes)
+        AnalyticsUtil.sendEvent("test_event_name", bundle)
 
         AnalyticsUtil.setUserAttribute(
             UserAttributes(firstName = "first_name",
