@@ -83,7 +83,12 @@ class WebEngageAnalyticsUtil : AnalyticsUtilInterface {
             while (iterator.hasNext()) {
                 val key = iterator.next()
                val obj =  inputEventParameters.get(key)
-                mapAttributes[key] = obj as Any
+                try {
+                    mapAttributes[key] = obj as Any
+
+                }catch (e:Exception){
+                    Log.e(TAG, "sendEvent: Your Bundel has Null Value for key: $key")
+                }
             }
             weAnalytics.track(eventName,mapAttributes)
         }
