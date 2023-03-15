@@ -23,7 +23,7 @@ Installation
 -----------
 add this dependency in your build.gradle(app level)
 ```
-implementation 'com.github.humatv:HumaAnalytics:1.0.0'
+implementation 'com.github.humatv:HumaAnalytics:1.1.1'
 implementation 'com.google.android.gms:play-services-auth:20.4.1'
 ```
 
@@ -72,7 +72,7 @@ If your application needs allowBackup to be set as true, then call me :)
 
 3. Step 3 :
 
-call AnalyticsUtil.loginUser() in first level of entrance to your application (for Exampel in Application Class)
+call AnalyticsUtil.loginUser() in first level of entrance to your application (for Example in Application Class)
 you can pass 3 argument for login user :
 ```
  /**
@@ -103,11 +103,11 @@ Usage
 -----
 
 * Send Events:
-example of events without prameters:
+example of events without parameters:
 ```
         AnalyticsUtil.sendEvent("test_event_name")
 ```
-example of events with prameters:
+example of events with parameters:
 ```
 
         val addedToCartAttributes: MutableMap<String, Any> = HashMap()
