@@ -87,7 +87,7 @@ class WebEngageAnalyticsUtil : AnalyticsUtilInterface {
                     mapAttributes[key] = obj as Any
 
                 }catch (e:Exception){
-                    Log.e(TAG, "sendEvent: Your Bundel has Null Value for key: $key")
+                    Log.e(TAG, "sendEvent: Your Bundle has Null Value for key: $key")
                 }
             }
             weAnalytics.track(eventName,mapAttributes)
@@ -113,6 +113,35 @@ class WebEngageAnalyticsUtil : AnalyticsUtilInterface {
 
 
     }
+
+    override fun setAttribute(attributeName: String, value: String?) {
+        value?.let {
+            val user = WebEngage.get().user()
+            user.setAttribute(attributeName,value)
+        }
+    }
+
+    override fun setAttribute(attributeName: String, value: Boolean?) {
+        value?.let {
+            val user = WebEngage.get().user()
+            user.setAttribute(attributeName,value)
+        }
+    }
+
+    override fun setAttribute(attributeName: String, value: Number?) {
+        value?.let {
+            val user = WebEngage.get().user()
+            user.setAttribute(attributeName,value)
+        }
+    }
+
+    override fun setAttribute(attributeName: String, value: Date?) {
+        value?.let {
+            val user = WebEngage.get().user()
+            user.setAttribute(attributeName,value)
+        }
+    }
+
 
     private fun getUserIdFromServer(
         phoneNumber: String?,

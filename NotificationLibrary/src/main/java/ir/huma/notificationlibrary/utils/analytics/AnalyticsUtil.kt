@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.webengage.sdk.android.Analytics
 import ir.huma.notificationlibrary.data.model.UserAttributes
 import ir.huma.notificationlibrary.utils.analytics.webengage.WebEngageAnalyticsUtil
+import java.util.Date
 
 object AnalyticsUtil:AnalyticsUtilInterface {
     private val webEngageAnalyticsUtil :AnalyticsUtilInterface =WebEngageAnalyticsUtil()
@@ -41,5 +42,24 @@ object AnalyticsUtil:AnalyticsUtilInterface {
 
     override fun setUserAttribute(userAttributes: UserAttributes) {
         webEngageAnalyticsUtil.setUserAttribute(userAttributes=userAttributes)
+    }
+
+    override fun setAttribute(attributeName: String, value: String?) {
+        webEngageAnalyticsUtil.setAttribute(attributeName,value)
+    }
+
+    override fun setAttribute(attributeName: String, value: Boolean?) {
+        webEngageAnalyticsUtil.setAttribute(attributeName,value)
+
+    }
+
+    override fun setAttribute(attributeName: String, value: Number?) {
+        webEngageAnalyticsUtil.setAttribute(attributeName,value)
+
+    }
+
+    override fun setAttribute(attributeName: String, value: Date?) {
+        webEngageAnalyticsUtil.setAttribute(attributeName,value)
+
     }
 }
