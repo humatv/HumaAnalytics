@@ -25,7 +25,11 @@ object AnalyticsUtil:AnalyticsUtilInterface {
     override fun logoutUser() {
         webEngageAnalyticsUtil.logoutUser()
     }
-
+    override fun sendEvent(eventName: String) {
+        webEngageAnalyticsUtil.sendEvent(
+            eventName =eventName ,
+            )
+    }
     override fun sendEvent(eventName: String, inputEventParameters: Map<String, Any>?) {
         webEngageAnalyticsUtil.sendEvent(
             eventName =eventName ,

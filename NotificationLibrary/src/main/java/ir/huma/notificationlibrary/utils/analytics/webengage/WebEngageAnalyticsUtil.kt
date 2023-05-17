@@ -54,6 +54,14 @@ class WebEngageAnalyticsUtil : AnalyticsUtilInterface {
         WebEngage.get().user().logout()
     }
 
+    override fun sendEvent(eventName: String) {
+        if (eventName.startsWith("we_"))
+            throw InputMismatchException("Event name must not start with we_")
+
+        val weAnalytics = WebEngage.get().analytics()
+        weAnalytics.track(eventName)
+    }
+
     override fun sendEvent(eventName: String, inputEventParameters: Map<String, Any>?) {
         if (eventName.startsWith("we_"))
             throw InputMismatchException("Event name must not start with we_")
