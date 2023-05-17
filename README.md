@@ -23,7 +23,7 @@ Installation
 -----------
 add this dependency in your build.gradle(app level)
 ```
-implementation 'com.github.humatv:HumaAnalytics:1.2.0'
+implementation 'com.github.humatv:HumaAnalytics:1.2.1'
 implementation 'com.google.android.gms:play-services-auth:20.4.1'
 ```
 
