@@ -43,7 +43,7 @@ sync and build your project then follow below steps:
 
 1. step 1:
 
-extentend your application class from AnalyticsApplication and pass your BuildConfig.DEBUG, and BuildConfig.FLAVOR
+extend your application class from AnalyticsApplication and pass your BuildConfig.DEBUG, and BuildConfig.FLAVOR
 ```
 class MyExampleApplication : AnalyticsApplication(
     isBuildConfigDebug = BuildConfig.DEBUG,
@@ -144,6 +144,47 @@ be careful to login user when user log in
 AnalyticsUtil.logoutUser()
 
 ```
+
+AppPersonalization InLineContent 
+-----
+config: 
+if Your Application class extended from **AnalyticsApplication** all thing is set up
+on the other way add below code after setting up webengage
+
+```
+ WebengagePersonalizationConfig.initPersonalization()
+
+```
+           
+
+
+whe have some type which can find in 
+'''
+ir.huma.notificationlibrary.utils.personalizition.webengage.models.PersonalizationType
+'''
+* miniPromotion
+* footer
+* vote
+* json
+* rowData
+
+can send your campain based on it and receive your data like below
+
+```
+ AnalyticsUtil.screenNavigated("ScreenName")
+ PersonalizationUtil.getVoteData("parentId"){
+    //yourData
+ }
+
+[//]: # can also call :(
+ getVoteData
+getPromotionData
+getRawData
+getJsonData
+getJsonStringData)
+```
+
+**please be attention that you must call screenNavigated first**
 
 <!-- Contributing -->
 ## :wave: Contributing
