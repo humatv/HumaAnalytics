@@ -1,7 +1,9 @@
 package ir.huma.notificationlibrary.utils.personalizition.webengage.models.vote
 
+import androidx.annotation.Keep
 import ir.huma.notificationlibrary.utils.personalizition.webengage.models.PersonalizationModel
 
+@Keep
 data class VoteData(
     val id:String?,
     val questionId: String?,
