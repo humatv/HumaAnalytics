@@ -9,7 +9,7 @@ import ir.huma.notificationlibrary.data.model.UserAttributes
 import ir.huma.notificationlibrary.data.model.UserUniqueIdInfo
 import ir.huma.notificationlibrary.data.util.ServiceBuilder
 import ir.huma.notificationlibrary.utils.analytics.AnalyticsUtilInterface
-import ir.huma.notificationlibrary.utils.ConverterExtension.getValidPhone
+import ir.huma.notificationlibrary.utils.extension.ConverterExtension.getValidPhone
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -148,6 +148,22 @@ class WebEngageAnalyticsUtil : AnalyticsUtilInterface {
             val user = WebEngage.get().user()
             user.setAttribute(attributeName,value)
         }
+    }
+
+    override fun screenNavigated(screenName: String, parameters: Map<String?, Any?>?) {
+
+        val weAnalytics = WebEngage.get().analytics()
+        if (parameters==null){
+            weAnalytics.screenNavigated(screenName)
+        }
+        else{
+            weAnalytics.screenNavigated(screenName,parameters)
+        }
+    }
+
+    override fun setScreenData(parameters: Map<String?, Any?>?) {
+        val weAnalytics = WebEngage.get().analytics()
+        weAnalytics.setScreenData(parameters)
     }
 
 

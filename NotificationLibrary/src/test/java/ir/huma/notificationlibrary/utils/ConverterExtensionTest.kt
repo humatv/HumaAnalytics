@@ -1,6 +1,6 @@
 package ir.huma.notificationlibrary.utils
 
-import ir.huma.notificationlibrary.utils.ConverterExtension.getValidPhone
+import ir.huma.notificationlibrary.utils.extension.ConverterExtension.getValidPhone
 import org.junit.Assert.*
 
 import org.junit.Test

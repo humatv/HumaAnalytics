@@ -1,4 +1,4 @@
-package ir.huma.notificationlibrary.utils
+package ir.huma.notificationlibrary.utils.extension
 
 import java.util.regex.Matcher
 import java.util.regex.Pattern
