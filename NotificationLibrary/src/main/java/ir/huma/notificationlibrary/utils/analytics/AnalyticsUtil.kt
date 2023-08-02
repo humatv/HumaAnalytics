@@ -66,4 +66,12 @@ object AnalyticsUtil:AnalyticsUtilInterface {
         webEngageAnalyticsUtil.setAttribute(attributeName,value)
 
     }
+
+    override fun screenNavigated(screenName: String, parameters: Map<String?, Any?>?) {
+        webEngageAnalyticsUtil.screenNavigated(screenName,parameters)
+    }
+
+    override fun setScreenData(parameters: Map<String?, Any?>?) {
+        webEngageAnalyticsUtil.setScreenData(parameters)
+    }
 }

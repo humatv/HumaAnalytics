@@ -20,4 +20,8 @@ interface AnalyticsUtilInterface {
 
     fun setAttribute(attributeName: String, value: Date?)
 
+    fun screenNavigated(screenName: String, parameters: Map<String?, Any?>?=null)
+
+    fun setScreenData(parameters: Map<String?, Any?>?)
+
 }
