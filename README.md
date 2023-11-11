@@ -269,7 +269,7 @@ getJsonStringData)
   | `type` | `json` | NO |
   | `jsonData` | Json valid format type of your data  | NO |
 
-* json:
+* rawData:
   | Attribute | Description | isOptional |
   | --- | --- | --- |
   | `type` | `rawData` | NO |
