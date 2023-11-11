@@ -10,4 +10,5 @@ interface PersonalizationMapper {
     fun getVoteConverter(safeData: HashMap<String, Any>): PersonalizationModel
     fun getMiniPromotionConverter(safeData: HashMap<String, Any>): PersonalizationModel
     fun getFooterConverter(safeData: HashMap<String, Any>): PersonalizationModel
+    fun getMiniPromotionListConverter(safeData: HashMap<String, Any>): PersonalizationModel?
 }

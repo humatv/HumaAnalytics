@@ -6,6 +6,7 @@ import ir.huma.notificationlibrary.utils.personalizition.webengage.models.Person
 import ir.huma.notificationlibrary.utils.personalizition.webengage.models.footer.FooterData
 import ir.huma.notificationlibrary.utils.personalizition.webengage.models.json.JsonData
 import ir.huma.notificationlibrary.utils.personalizition.webengage.models.promotion.MiniPromotionData
+import ir.huma.notificationlibrary.utils.personalizition.webengage.models.promotionlist.MiniPromotionListData
 import ir.huma.notificationlibrary.utils.personalizition.webengage.models.raw.RawData
 import ir.huma.notificationlibrary.utils.personalizition.webengage.models.vote.VoteData
 import java.util.HashMap
@@ -27,6 +28,9 @@ class PersonalizationMapperImpl : PersonalizationMapper {
                 }
                 PersonalizationType.Footer -> {
                     return getFooterConverter(safeData)
+                }
+                PersonalizationType.MiniPromotionList ->{
+                     return getMiniPromotionListConverter(safeData)
                 }
                 else -> {
                     return RawData(data.content?.customData)
@@ -111,5 +115,41 @@ class PersonalizationMapperImpl : PersonalizationMapper {
             senderPackageName = senderPackageName ,
         )
 
+    }
+
+    override fun getMiniPromotionListConverter(safeData: HashMap<String, Any>): PersonalizationModel? {
+        val id = safeData["id"] as? String
+        val title = safeData["title"] as? String
+        val index = safeData["index"] as? String
+        val senderPackageName = safeData["senderPackageName"] as? String
+        val miniPromotionList = getMiniPromotionListMap(
+            data =safeData,
+            title =title, senderPackageName = senderPackageName)
+        return MiniPromotionListData(
+            id = id,
+            title = title ,
+            index = index?.toIntOrNull() ?: 0 ,
+            promotionList = miniPromotionList
+        )
+    }
+    private fun getMiniPromotionListMap(data: HashMap<String, Any>, senderPackageName: String?, title: String?): List<MiniPromotionData> {
+        val promotionList = mutableMapOf<String , String>()
+        for (i in 0..5) {
+            val imageUrl = data["image$i"] as? String
+            val linkUrl = data["link$i"] as? String
+            if (!imageUrl.isNullOrBlank() && !linkUrl.isNullOrBlank()) {
+                promotionList[imageUrl] = linkUrl
+            }
+        }
+        return promotionList.toList().map { (imageUrl , linkUrl) ->
+            MiniPromotionData(
+                id = imageUrl ,
+                title = "PersonalizeItem $title" ,
+                description = senderPackageName ,
+                imageUrl = imageUrl ,
+                linkUrl = linkUrl ,
+                senderPackageName = senderPackageName
+            )
+        }
     }
 }
