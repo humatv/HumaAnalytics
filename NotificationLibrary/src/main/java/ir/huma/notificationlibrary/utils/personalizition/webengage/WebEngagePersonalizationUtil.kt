@@ -9,6 +9,7 @@ import ir.huma.notificationlibrary.utils.personalizition.webengage.mapper.Person
 import ir.huma.notificationlibrary.utils.personalizition.webengage.models.PersonalizationModel
 import ir.huma.notificationlibrary.utils.personalizition.webengage.models.json.JsonData
 import ir.huma.notificationlibrary.utils.personalizition.webengage.models.promotion.MiniPromotionData
+import ir.huma.notificationlibrary.utils.personalizition.webengage.models.promotionlist.MiniPromotionListData
 import ir.huma.notificationlibrary.utils.personalizition.webengage.models.raw.RawData
 import ir.huma.notificationlibrary.utils.personalizition.webengage.models.vote.VoteData
 import kotlin.reflect.KClass
@@ -26,7 +27,7 @@ object WebEngagePersonalizationUtil : PersonalizationUtilInterface {
                 parentId,
                 object : PersonalizedPlaceHolder<VoteData>(onDataReceived) {
                     override fun onDataPrepared(data: PersonalizationModel) {
-                        onDataReceived.invoke(data as VoteData)
+                        onDataReceived.invoke(data as? VoteData)
                     }
                 })
     }
@@ -40,9 +41,24 @@ object WebEngagePersonalizationUtil : PersonalizationUtilInterface {
                 parentId,
                 object : PersonalizedPlaceHolder<MiniPromotionData>(onDataReceived) {
                     override fun onDataPrepared(data: PersonalizationModel) {
-                        onDataReceived.invoke(data as MiniPromotionData)
+                        onDataReceived.invoke(data as? MiniPromotionData)
                     }
                 })
+    }
+
+    override fun getPromotionListData(
+        parentId: String,
+        onDataReceived: (data: MiniPromotionListData?) -> Unit,
+    ) {
+        WEPersonalization.Companion.get()
+            .registerWEPlaceholderCallback(
+                parentId,
+                object : PersonalizedPlaceHolder<MiniPromotionListData>(onDataReceived) {
+                    override fun onDataPrepared(data: PersonalizationModel) {
+                        onDataReceived.invoke(data as? MiniPromotionListData)
+                    }
+                })
+
     }
 
     override fun getRawData(
@@ -54,7 +70,7 @@ object WebEngagePersonalizationUtil : PersonalizationUtilInterface {
                 parentId,
                 object : PersonalizedPlaceHolder<RawData>(onDataReceived) {
                     override fun onDataPrepared(data: PersonalizationModel) {
-                        onDataReceived.invoke(data as RawData)
+                        onDataReceived.invoke(data as? RawData)
                     }
                 })
     }

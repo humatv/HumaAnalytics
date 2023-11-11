@@ -9,7 +9,7 @@ enum class PersonalizationType(private val value:String) {
     Footer("footer"),
     Vote("vote"),
     Json("json"),
-    RawData("rowData");
+    RawData("rawData");
 
     companion object {
         fun from(inputValue: String): PersonalizationType? = PersonalizationType.values().find { it.value == inputValue }

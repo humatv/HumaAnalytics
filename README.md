@@ -23,7 +23,7 @@ Installation
 -----------
 add this dependency in your build.gradle(app level)
 ```
-implementation 'com.github.humatv:HumaAnalytics:1.2.1'
+implementation 'com.github.humatv:HumaAnalytics:1.3.1'
 implementation 'com.google.android.gms:play-services-auth:20.4.1'
 ```
 
@@ -163,6 +163,7 @@ whe have some type which can find in
 ir.huma.notificationlibrary.utils.personalizition.webengage.models.PersonalizationType
 '''
 * miniPromotion
+* miniPromotionList
 * footer
 * vote
 * json
@@ -179,6 +180,7 @@ can send your campain based on it and receive your data like below
 [//]: # can also call :(
  getVoteData
 getPromotionData
+getPromotionListData
 getRawData
 getJsonData
 getJsonStringData)
@@ -186,7 +188,88 @@ getJsonStringData)
 
 **please be attention that you must call screenNavigated first**
 
+* VoteData:
+  | Attribute | Description | isOptional |
+  | --- | --- | --- |
+  | `type` | `vote` | NO |
+  | `id` | for handel campaign id | NO |
+  | `questionId` | for handel campaign different A/B testing | YES |
+  | `title` | by using `title` and  `description` you can ask your vote by app UI | YES |
+  | `description` | by using `title` and  `description` you can ask your vote by app UI | YES |
+  | `condition` | can set any String to set condition and handle in your app| YES |
+  | `positiveButtonTitle` | positive Button title in dialog | YES |
+  | `negativeButtonTitle` | negative Button title in dialog | YES |
+  | `metaData` | any meta data for mor information or handleable | YES |
+  | `choice0` | choice in order | YES |
+  | `choice1` | choice in order | YES |
+  | `choice2` | choice in order | YES |
+  | `choice3` | choice in order | YES |
+  | `choice4` | choice in order | YES |
+  | `choice5` | choice in order | YES |
+  | `choice6` | choice in order | YES |
+
+* miniPromotion:
+  | Attribute | Description | isOptional |
+  | --- | --- | --- |
+  | `type` | `miniPromotion` | NO |
+  | `id` | for handel campaign id | NO |
+  | `title` | by using `title` and  `description` you can set by app UI | YES |
+  | `description` | by using `title` and  `description` you can set by app UI | YES |
+  | `imageUrl` | promotion image Url | NO |
+  | `linkUrl` | promotion Link Url | YES |
+  | `senderPackageName` | promotion owner packageName | YES |
+  | `headerId` | any meta data for mor information or handleable | YES |
+  | `badgeImageUrl` | badge image on promotion | YES |
+  | `badgeTitle` | badge title text on promotion | YES |
+  | `index` | order of item in mini promotion list | YES |
+  ** `senderPackageName` and `linkUrl` is required for launcher mini promotion **
+  **  in launcher `headerId` is mini promotion server headerId **
+  **  in launcher just use one of `badgeImageUrl` or `badgeTitle` because overlays **
+
+* footer:
+  | Attribute | Description | isOptional |
+  | --- | --- | --- |
+  | `type` | `footer` | NO |
+  | `title` | by using `title` and  `description` you can set by app UI | YES |
+  | `description` | by using `title` and  `description` you can set by app UI | YES |
+  | `linkUrl` | promotion Link Url | YES |
+  | `senderPackageName` | promotion owner packageName | YES |
+
+* miniPromotionList:
+  | Attribute | Description | isOptional |
+  | --- | --- | --- |
+  | `type` | `miniPromotionList` | NO |
+  | `id` | for handel campaign id | NO |
+  | `title` | by using `title` and  `description` you can set by app UI | YES |
+  | `senderPackageName` | promotion owner packageName | YES |
+  | `index` | order of list page | YES |
+  | `image1` | image of item in mini promotion list | YES |
+  | `link1` | deepLink of item in mini promotion list | YES |
+  | `image2` | image of item in mini promotion list | YES |
+  | `link2` | deepLink of item in mini promotion list | YES |
+  | `image3` | image of item in mini promotion list | YES |
+  | `link3` | deepLink of item in mini promotion list | YES |
+  | `image4` | image of item in mini promotion list | YES |
+  | `link4` | deepLink of item in mini promotion list | YES |
+  | `image5` | image of item in mini promotion list | YES |
+  | `link5` | deepLink of item in mini promotion list | YES |
+  ** `senderPackageName` is required for launcher mini promotion **
+
+* json:
+  | Attribute | Description | isOptional |
+  | --- | --- | --- |
+  | `type` | `json` | NO |
+  | `jsonData` | Json valid format type of your data  | NO |
+
+* json:
+  | Attribute | Description | isOptional |
+  | --- | --- | --- |
+  | `type` | `rawData` | NO |
+  ** you can use key an value to use it and handle by yourself**
+
+
 <!-- Contributing -->
+
 ## :wave: Contributing
 
 <a href="https://github.com/Louis3797/awesome-readme-template/graphs/contributors">
