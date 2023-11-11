@@ -222,9 +222,14 @@ getJsonStringData)
   | `badgeImageUrl` | badge image on promotion | YES |
   | `badgeTitle` | badge title text on promotion | YES |
   | `index` | order of item in mini promotion list | YES |
-  ** `senderPackageName` and `linkUrl` is required for launcher mini promotion **
-  **  in launcher `headerId` is mini promotion server headerId **
-  **  in launcher just use one of `badgeImageUrl` or `badgeTitle` because overlays **
+
+```
+   `senderPackageName` and `linkUrl` is required for launcher mini promotion 
+    in launcher `headerId` is mini promotion server headerId 
+   in launcher just use one of `badgeImageUrl` or `badgeTitle` because overlays 
+```
+
+
 
 * footer:
   | Attribute | Description | isOptional |
@@ -253,7 +258,10 @@ getJsonStringData)
   | `link4` | deepLink of item in mini promotion list | YES |
   | `image5` | image of item in mini promotion list | YES |
   | `link5` | deepLink of item in mini promotion list | YES |
+
+```
   ** `senderPackageName` is required for launcher mini promotion **
+```
 
 * json:
   | Attribute | Description | isOptional |
@@ -265,7 +273,8 @@ getJsonStringData)
   | Attribute | Description | isOptional |
   | --- | --- | --- |
   | `type` | `rawData` | NO |
-  ** you can use key an value to use it and handle by yourself**
+
+  ``` you can use key an value to use it and handle by yourself ```
 
 
 <!-- Contributing -->
