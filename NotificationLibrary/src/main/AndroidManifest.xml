@@ -7,6 +7,6 @@
 
     <application
         android:allowBackup="false">
-        <meta-data android:name="com.webengage.sdk.android.environment" android:value="us" />
+        <meta-data android:name="com.webengage.sdk.android.environment" android:value="ir0" />
     </application>
 </manifest>
