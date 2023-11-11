@@ -2,6 +2,7 @@ package ir.huma.notificationlibrary.utils.personalizition
 
 import ir.huma.notificationlibrary.utils.personalizition.webengage.WebEngagePersonalizationUtil
 import ir.huma.notificationlibrary.utils.personalizition.webengage.models.promotion.MiniPromotionData
+import ir.huma.notificationlibrary.utils.personalizition.webengage.models.promotionlist.MiniPromotionListData
 import ir.huma.notificationlibrary.utils.personalizition.webengage.models.raw.RawData
 import ir.huma.notificationlibrary.utils.personalizition.webengage.models.vote.VoteData
 import kotlin.reflect.KClass
@@ -22,6 +23,13 @@ object PersonalizationUtil : PersonalizationUtilInterface {
         onDataReceived: (data: MiniPromotionData?) -> Unit,
     ) {
         webEngagePersonalizationUtil.getPromotionData(parentId,onDataReceived)
+    }
+
+    override fun getPromotionListData(
+        parentId: String,
+        onDataReceived: (data: MiniPromotionListData?) -> Unit,
+    ) {
+        webEngagePersonalizationUtil.getPromotionListData(parentId,onDataReceived)
     }
 
     override fun getRawData(
