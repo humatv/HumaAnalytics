@@ -1,10 +1,10 @@
 package ir.huma.notificationlibrary.utils.personalizition.webengage
 
+import android.util.Log
 import com.webengage.personalization.data.WECampaignData
 import ir.huma.notificationlibrary.utils.personalizition.webengage.mapper.PersonalizationMapper
 import ir.huma.notificationlibrary.utils.personalizition.webengage.mapper.PersonalizationMapperImpl
 import ir.huma.notificationlibrary.utils.personalizition.webengage.models.PersonalizationModel
-import java.lang.Exception
 
 abstract class PersonalizedPlaceHolder<T: PersonalizationModel>(private val onDataReceivedCallback: (data: T?) -> Unit):CustomPlaceholderCallback {
     private val personalizationMapper: PersonalizationMapper = PersonalizationMapperImpl()
@@ -26,6 +26,10 @@ abstract class PersonalizedPlaceHolder<T: PersonalizationModel>(private val onDa
         targetViewId: String,
         error: Exception,
     ) {
+        Log.e(
+            "AnalyticHuma",
+            "onPlaceholderException PersonalizedData: campaignId:$campaignId  targetViewId:$targetViewId \n ${error.message}",
+        )
         onDataReceivedCallback.invoke(null)
     }
 
